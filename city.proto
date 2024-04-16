@@ -1,0 +1,31 @@
+//Counts the number of vehicles that pass sensors on 10 roads in Dublin in the last 30 mins
+syntax = "proto3";
+package city;
+
+service Counter{
+    rpc counter (CountRequest) returns (stream CountResponse){}
+} 
+
+service Lights{
+    rpc switch(switchReq) returns (switchResp){}
+}
+
+message CountRequest{
+    repeated string road = 1;
+   // repeated string vehicle_type = 1;
+} 
+
+message CountResponse{
+    string count = 1;
+   // string traffic_warning = 2;
+}
+
+message switchReq{
+    bool toggle = 1;
+    string status = 2;
+} 
+
+message switchResp{
+    string status = 1;
+    uint32 energy =2;
+}
