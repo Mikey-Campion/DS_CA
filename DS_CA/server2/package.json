@@ -1,0 +1,11 @@
+{
+  "name": "server2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server2.js",
+  "scripts": {
+    "start": "node server2.js"
+  },
+  "author": "Michael Campion",
+  "license": "ISC"
+}

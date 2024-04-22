@@ -1,0 +1,13 @@
+syntax = "proto3";
+package count;
+
+service Counter{
+    rpc counter (CountRequest) returns (stream CountResponse){}
+} 
+
+message CountRequest{
+} 
+
+message CountResponse{
+    string count = 1;
+}
