@@ -1,0 +1,16 @@
+
+syntax = "proto3";
+package warning;
+
+
+service TrafficWarning{
+    rpc warning (stream WarnRequest) returns (WarnResponse){}
+}
+
+message WarnRequest{
+    string location = 1;
+}
+
+message WarnResponse{
+     string warning = 1; 
+}
