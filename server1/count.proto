@@ -1,13 +1,21 @@
-syntax = "proto3";
-package count;
+/* 
+ * Proto file for the Counter service
+ * Author: Michael Campion 
+ */
 
-service Counter{
-    rpc counter (CountRequest) returns (stream CountResponse){}
-} 
-
-message CountRequest{
-} 
-
-message CountResponse{
-    string count = 1;
-}
+ syntax = "proto3";
+ package count;
+ 
+ // Counter service is a server side streaming grpc service
+ service Counter{
+     rpc counter (CountRequest) returns (stream CountResponse){}
+ } 
+ 
+ // CountRequest is the message sent from client side, it is an empty message
+ message CountRequest{
+ } 
+ 
+ // CountResponse is the response message that is streamed from the server side, the message contains a string
+ message CountResponse{
+     string count = 1; // This string contains a message about the number of cars that have passed a sensor over a period
+ }
