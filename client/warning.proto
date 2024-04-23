@@ -1,16 +1,22 @@
+/* 
+ * Proto file for the TrafficWarning service
+ * Author: Michael Campion 
+ */
 
-syntax = "proto3";
-package warning;
-
-
-service TrafficWarning{
-    rpc warning (stream WarnRequest) returns (WarnResponse){}
-}
-
-message WarnRequest{
-    string location = 1;
-}
-
-message WarnResponse{
-     string warning = 1; 
-}
+ syntax = "proto3";
+ package warning;
+ 
+ // The TrafficWarning service is a client side streaming grpc
+ service TrafficWarning{
+     rpc warning (stream WarnRequest) returns (WarnResponse){}
+ }
+ 
+ // The WarnRequest message contains a string
+ message WarnRequest{
+     string location = 1; // This string contains a location to be checked for warnings
+ }
+ 
+ // The WarnResponse mesage contains a string 
+ message WarnResponse{
+      string warning = 1; // This string contains any traffic warnings that are present for the locations given to the server
+ }
