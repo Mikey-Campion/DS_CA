@@ -1,17 +1,24 @@
+/* 
+ * Proto file for the Lights service
+ * Author: Michael Campion 
+ */
+
 syntax = "proto3";
 package lights;
 
 
-
+// The Lights service is a unary grpc service
 service Lights{
     rpc switch (SwitchRequest) returns (SwitchResponse){}
 } 
 
+// The SwitchRequest message contains a string "toggle" that will specify whether the lights should be turned on or off
 message SwitchRequest{
     string toggle = 1;
 } 
 
+// The SwitchResponse message contains a string and an integer number
 message SwitchResponse{
-    string status = 1;
-    uint32 energy = 2;
+    string status = 1; // This string holds the current status of the lights either "On" or "Off"
+    uint32 energy = 2; // This integer holds the number of kwh the city lights have consumed that day
 } 
